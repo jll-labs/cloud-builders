@@ -1,3 +1,2 @@
-ARG NODE_VERSION=latest
-FROM node:${NODE_VERSION}
+FROM node:11.13.0-alpine
 ENTRYPOINT ["npm"]
