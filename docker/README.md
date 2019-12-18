@@ -6,7 +6,16 @@ Arguments passed to this builder will be passed to `docker` directly, allowing
 callers to run
 [any Docker command](https://docs.docker.com/engine/reference/commandline/).
 
-By default, the version of Docker that is used by this builder is `18.06.1`.
+You should consider instead using an [official `docker`
+image](https://hub.docker.com/_/docker/):
+
+```yaml
+steps:
+- name: docker
+  args: ['build', '-t', '...']
+```
+
+This allows you to use any supported version of Docker (e.g., `docker:19.03.1`)
 
 ## GCR Credentials
 
@@ -57,8 +66,9 @@ steps:
 
 ## Older Versions
 
-Since Docker CLI changes may not be backward-compatible, we provide tagged
-versions of this builder for these previously-supported versions:
+Since Docker CLI changes may not be backward-compatible, tagged versions
+of this builder remain available for several previously-supported versions:
 
-*   `gcr.io/cloud-builders/docker:17.12.0`
-*   `gcr.io/cloud-builders/docker:18.06.1` (`:latest`)
+*   `gcr.io/cloud-builders/docker:18.06.1`
+*   `gcr.io/cloud-builders/docker:18.09.0`
+*   `gcr.io/cloud-builders/docker:18.09.6` (`:latest`)
